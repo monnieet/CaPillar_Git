@@ -1,0 +1,10 @@
+tfd_w=np.fft.fft2(Z);
+magnitude_spectrum = np.abs(np.fft.fftshift(tfd_w)) 
+plt.figure()
+plt.subplot(121),plt.imshow(Z, cmap = 'gray')
+plt.title('Mire sinusoïdale'), plt.xlabel('n - axe x'),plt.ylabel('m - axe y')
+plt.subplot(122),plt.imshow(np.log2(1+magnitude_spectrum),origin=('upper'), extent=(-0.5,0.5,0.5,-0.5), cmap = 'jet')
+#attention à bien renseigner le paramètre extent. 
+#Bien saisir extent=(-0.5,0.5,0.5,-0.5) et non pas l'inverse !!!
+plt.title('Spectre d''amplitude'), plt.xlabel('u'),plt.ylabel('v')
+plt.show()
